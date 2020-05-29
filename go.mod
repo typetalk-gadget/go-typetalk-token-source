@@ -1,4 +1,4 @@
-module github.com/vvatanabe/go-typetalk-token-source
+module github.com/typetalk-gadget/go-typetalk-token-source
 
 go 1.14
 
