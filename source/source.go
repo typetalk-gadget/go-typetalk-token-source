@@ -52,8 +52,8 @@ func (s *TokenSource) Token() (*oauth2.Token, error) {
 		Expiry:       time.Now().Add(tokenExpire),
 	}
 
-	s.store.StoreWithExpire(accessTokenKey, token, tokenExpire)
-	s.store.StoreWithExpire(refreshTokenKey, token.RefreshToken, refreshExpire)
+	s.store.Store(accessTokenKey, token, expiremap.Expire(tokenExpire))
+	s.store.Store(refreshTokenKey, token.RefreshToken, expiremap.Expire(refreshExpire))
 
 	return token, nil
 }
